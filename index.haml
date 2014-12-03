@@ -1,0 +1,42 @@
+%html
+  %head
+    %meta{charset:"utf-8"}
+    %meta{name:"viewport",content:"width=device-width,intial-scale=1.0"}
+    %title {block:PostTitle}{PostTitle}: {/block:PostTitle}{Title}
+    %link{rel:"alternate",type:"application/rss+xml",href:"{RSS}"}
+  %body
+    %header
+      %h1 {Title}
+      
+      .main
+        {block:Posts}
+        {block:Text}
+        .post-text
+          {block:Title}
+          %h1 
+            %a{href:"{Permalink}"} {Title}
+          {/block:Title}
+          .content
+            {Body}
+          .metadata
+            %ul
+              %li
+                %a{href:"{Permalink}"} Permalink to this post
+              {block:HasTags}
+              %li Tagged
+                %ul
+                  {block:Tags}
+                  %li
+                    %a{href:"{TagURL}"} {Tag}
+                  {/block:Tags}
+              {/block:HasTags}
+        {/block:Text}
+        {/block:Posts}
+    
+    
+    %footer
+      %p Get the
+        %a{href:"{RSS}"} feed for this blog
+    
+    
+    
